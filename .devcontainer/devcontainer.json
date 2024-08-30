@@ -3,30 +3,17 @@
 {
 	"name": "PowerShell",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/vscode/devcontainers/base:jammy",
+	"image": "mcr.microsoft.com/powershell:lts-debian-11",
 	"features": {
-		"powershell": "latest",
 		"ghcr.io/devcontainers/features/common-utils:2": {
-			"installZsh": true,
-			"installOhMyZsh": true,
-			"installOhMyZshConfig": true,
-			"upgradePackages": true,
+			"installZsh": "true",
 			"username": "vscode",
-			"userUid": "automatic",
-			"userGid": "automatic"
-		},
-		"ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {
-			"clean_ppas": true,
-			"preserve_apt_list": true,
-			"packages": "genisoimage,sshpass",
-			"ppas": "ppa:deadsnakes/ppa"
+			"upgradePackages": "false",
+			"nonFreePackages": "true"
 		}
 	},
 
-	"postCreateCommand": {
-		"chsh": "sudo chsh vscode -s \"$(which pwsh)\"",
-		"powercli": "pwsh -Command Install-Module VMware.PowerCLI -Force"
-	},
+	"postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\"",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -48,10 +35,11 @@
 				"yzhang.markdown-all-in-one"
 			]
 		}
-	},
-	"runArgs": ["--privileged"],
+	}
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
+
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root"
+	// "remoteUser": "root"
 }
