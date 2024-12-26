@@ -1,6 +1,6 @@
 $datacenterName = "HomeLab"
 $clusterName = "ImageBuildOnly"
-$esxiImageName = "8.0 U3 - 24022510"
+$esxiImageName = "8.0 U3c - 24414501"
 $esxiComponentName = "VMware USB NIC Fling Driver"
 $esxiComponentVersion = "1.14-2vmw"
 
